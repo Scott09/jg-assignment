@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import Footer from '../src/components/Footer/Footer.component';
 
 
 
@@ -12,7 +13,7 @@ function App() {
 
 
   const fetchJobData = () => {
-    
+    axios.get(``)
   }
 
 
@@ -22,7 +23,7 @@ function App() {
       
       <main className="job-content">
         <div>
-        <form className="inputform" >
+        <form className="inputform" onSubmit={fetchJobData} >
 
             <input value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription" placeholder="What are you looking for?"></input>
 
@@ -32,10 +33,7 @@ function App() {
          </form>
         </div>
       </main>
-
-      <footer>
-
-      </footer>
+      <Footer />
     </div>
   );
 }
