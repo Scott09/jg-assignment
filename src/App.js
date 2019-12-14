@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
+
+
 
 function App() {
+
+  const [jobs, setJobs] = useState();
+  const [city, setCity] = useState("");
+  const [jobSearch, setJobSearch] = useState("");
+
+
+  const fetchJobData = () => {
+    
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <main className="job-content">
+        <div>
+        <form className="inputform" >
+
+            <input value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription" placeholder="What are you looking for?"></input>
+
+            <input value={city} onChange={e => setCity(e.target.value)} type="text" name="city" placeholder="Where are you looking?"></input>
+          
+            <button type="submit">Search now!</button>
+         </form>
+        </div>
+      </main>
+
+      <footer>
+
+      </footer>
     </div>
   );
 }
