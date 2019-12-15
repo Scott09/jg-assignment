@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Footer from '../src/components/Footer/Footer.component';
+import { TextField } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 
 
 
@@ -32,18 +35,23 @@ function App() {
 
       <div>
         <form className="inputform" onSubmit={handleSubmit} >
+            {/* <input value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription" placeholder="What are you looking for?"></input> */}
 
-            <input value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription" placeholder="What are you looking for?"></input>
+            <TextField id="standard-basic" label="What job do you want?" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
+            <TextField id="standard-basic" label="Where do you want to work?" value={city} onChange={e => setCity(e.target.value)} type="text" name="city"/>
 
-            <input value={city} onChange={e => setCity(e.target.value)} type="text" name="city" placeholder="Where are you looking?"></input>
-            
-            <button type="submit">Search now!</button>
+            {/* <input value={city} onChange={e => setCity(e.target.value)} type="text" name="city" placeholder="Where are you looking?"></input> */}
+            <Button className="button" type="submit" variant="contained" color="primary">
+            Search Jobs!
+          </Button>
         </form>
       </div>
-      
+    
       <main className="job-content">
         
       </main>
+        
+      
       <Footer />
     </div>
   );
