@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
 import Footer from '../src/components/Footer/Footer.component';
+
 
 
 
@@ -12,26 +12,33 @@ function App() {
   const [jobSearch, setJobSearch] = useState("");
 
 
-  const fetchJobData = () => {
-    axios.get(``)
-  }
+  const handleSubmit = async (event) => {
+
+    event.preventDefault();
+
+    const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}`);
+    const json = await response.json();
+    console.log(json);
+  };
 
 
 
   return (
     <div className="App">
-      
-      <main className="job-content">
-        <div>
-        <form className="inputform" onSubmit={fetchJobData} >
+
+      <div>
+        <form className="inputform" onSubmit={handleSubmit} >
 
             <input value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription" placeholder="What are you looking for?"></input>
 
             <input value={city} onChange={e => setCity(e.target.value)} type="text" name="city" placeholder="Where are you looking?"></input>
-          
+            
             <button type="submit">Search now!</button>
-         </form>
-        </div>
+        </form>
+      </div>
+      
+      <main className="job-content">
+        
       </main>
       <Footer />
     </div>
