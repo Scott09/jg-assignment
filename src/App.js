@@ -14,14 +14,18 @@ function App() {
 
   const handleSubmit = async (event) => {
 
-    event.preventDefault();
-
-    const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}`);
-    const json = await response.json();
-    console.log(json);
+    try {
+      event.preventDefault()
+      const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}`);
+      const json = await response.json();
+      setJobs(json.jobs);
+      setCity("");
+      setJobSearch("");
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-
+  
 
   return (
     <div className="App">
