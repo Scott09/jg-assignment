@@ -64,7 +64,7 @@ function App() {
 
       <main className="job-content">
         { jobs ? jobs.map((job) => {
-          return <JobCard url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} />
+          return <JobCard key={jobs.id} url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} snippet={job.snippet} location={job.location} salary_min={job.salary_min} salary_max={job.salary_max}/>
         }) : null}
 
 
