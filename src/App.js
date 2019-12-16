@@ -40,6 +40,7 @@ function App() {
   return (
     <>
     <div className="App">
+      
       <div>
         <form className="inputform" onSubmit={handleSubmit} >
             <TextField id="standard-basic" label="Job description or keyword" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
@@ -65,11 +66,17 @@ function App() {
         { jobs ? jobs.map((job) => {
           return <JobCard url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} />
         }) : null}
+
+
+        <Footer jobs={jobs} />
+        
       </main>
-      <Footer />
+      
+
+      
+      
     </div>
-    
-    </>
+      </>
   );
 }
 
