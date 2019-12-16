@@ -4,7 +4,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ControlledOpenSelect({postDate, handleChange, optionone, optiontwo, optionthree, title}) {
+export default function ControlledOpenSelect({handleChange, optionone, optiontwo, optionthree, title}) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   

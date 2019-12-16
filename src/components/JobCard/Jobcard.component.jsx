@@ -12,12 +12,10 @@ const JobCard = ( { url, name, location, salary_min, salary_max, age, company} )
         <p>{location}</p>
         <p>Salary: {salary_min}$-{salary_max}$</p>
       </div>
-      <div>
-      <a href={url}>Visit Posting!</a>
-      </div>
       <footer>
         <p>
-          {age} days old
+          <span>{age} days old</span>
+          <span><a href={url}>Visit Posting!</a></span>
         </p>
       </footer>
     </div>

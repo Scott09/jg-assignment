@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Footer from '../src/components/Footer/Footer.component';
 import { TextField } from '@material-ui/core';
@@ -64,7 +64,7 @@ function App() {
 
       <main className="job-content">
         { jobs ? jobs.map((job) => {
-          return <JobCard key={jobs.id} url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} snippet={job.snippet} location={job.location} salary_min={job.salary_min} salary_max={job.salary_max}/>
+          return <JobCard key={job.id} url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} snippet={job.snippet} location={job.location} salary_min={job.salary_min} salary_max={job.salary_max}/>
         }) : null}
 
 
