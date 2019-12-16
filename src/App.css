@@ -11,12 +11,16 @@
   flex-direction: column;
   max-width: 100%;
   width: 300px;
+  margin-bottom: 50px;
 }
 
 .job-content {
-  display: block;
-  justify-content: left;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
+
+
 
 
 

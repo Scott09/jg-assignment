@@ -48,24 +48,24 @@ function App() {
 
             {/* <input value={city} onChange={e => setCity(e.target.value)} type="text" name="city" placeholder="Where are you looking?"></input> */}
             <Button className="button" type="submit" variant="contained" color="primary">
-            Search Jobs!
+            Find your new job!
           </Button>
         </form>
       </div>
     
       <main className="job-content">
-        {
-          jobs ? <JobCard url={jobs[0].url} name={jobs[0].name}/> : null
-        }
-        
-        {/* { jobs ? return (<p></p>) :}
-        { jobs ? jobs.every((job) => {
-          return <JobCard url={job.url} source={job.source} name={job.name} snippet={job.snippet} location={job.location} salary_min={job.salary_min} salary_max={job.salary_max}/>
-        }) : null} */}
-      </main>
-        
+        {/* {
+          jobs ? <JobCard url={jobs[0].url} name={jobs[0].name} age={jobs[0].job_age}/> : null
+        } */}
+
+        { jobs ? jobs.map((job) => {
+          return <JobCard url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} />
+        }) : null}
       
-      <Footer />
+        
+      </main>
+        <Footer />
+      
     </div>
   );
 }
