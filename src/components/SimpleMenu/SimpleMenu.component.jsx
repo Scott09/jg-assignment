@@ -2,9 +2,8 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import './SimpleMenu.styles.css';
 
-export default function SimpleMenu() {
+export default function SimpleMenu({name, optionone, optiontwo, optionthree}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -16,9 +15,9 @@ export default function SimpleMenu() {
   };
 
   return (
-    <div className="simple-menu">
+    <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Open Menu
+        {name}
       </Button>
       <Menu
         id="simple-menu"
@@ -27,9 +26,9 @@ export default function SimpleMenu() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>{optionone}</MenuItem>
+        <MenuItem onClick={handleClose}>{optiontwo}</MenuItem>
+        <MenuItem onClick={handleClose}>{optionthree}</MenuItem>
       </Menu>
     </div>
   );

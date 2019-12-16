@@ -12,12 +12,14 @@ function App() {
   const [jobs, setJobs] = useState();
   const [city, setCity] = useState("");
   const [jobSearch, setJobSearch] = useState("");
+  const [searchRadius, setSearchRadius] = useState(75);
+  const [postDate, setpostDate] = useState(50);
 
   const handleSubmit = async (event) => {
 
     try {
       event.preventDefault()
-      const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}`);
+      const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}&radius_miles=${searchRadius}&days_ago=${postDate}`);
       const json = await response.json();
       setJobs(json.jobs);
       //reset TextField states
@@ -39,8 +41,6 @@ function App() {
   return (
     <div className="App">
 
-    
-
       <div>
       
         <form className="inputform" onSubmit={handleSubmit} >
@@ -48,9 +48,8 @@ function App() {
             
             <TextField id="standard-basic" label="What job do you want?" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
             <TextField id="standard-basic" label="Where do you want to work?" value={city} onChange={e => setCity(e.target.value)} type="text" name="city"/>
-            <SimpleMenu />
-            
-        
+          
+
             <Button className="button" type="submit" variant="contained" color="primary">
             Find your new job!
           </Button>
