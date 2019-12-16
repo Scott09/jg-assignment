@@ -6,12 +6,11 @@
 }
 
 .inputform {
-  margin-top: 50px;
+  margin: 44px;
   display: flex;
   flex-direction: column;
   max-width: 100%;
   width: 300px;
-  margin-bottom: 50px;
 }
 
 .job-content {
