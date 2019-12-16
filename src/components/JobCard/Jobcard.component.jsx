@@ -5,8 +5,8 @@ const JobCard = ( { url, source, name, snippet, location, salary_min, salary_max
   return (
     <div className="container">
       <header>
-        <h2>{name}</h2>
-        <h3>{company}</h3>
+        <h3>{name}</h3>
+        <h4>{company}</h4>
       </header>
       <div>
       <a href={url}>Visit Posting!</a>

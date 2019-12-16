@@ -17,6 +17,11 @@
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
+  margin: 15px;
+}
+
+.results {
+  margin: 10px;
 }
 
 

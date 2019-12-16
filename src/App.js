@@ -46,25 +46,32 @@ function App() {
         <form className="inputform" onSubmit={handleSubmit} >
 
             
-            <TextField id="standard-basic" label="What job do you want?" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
-            <TextField id="standard-basic" label="Where do you want to work?" value={city} onChange={e => setCity(e.target.value)} type="text" name="city"/>
+            <TextField id="standard-basic" label="Job description or keyword" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
+            <TextField id="standard-basic" label="Near what city?" value={city} onChange={e => setCity(e.target.value)} type="text" name="city"/>
           
 
             <Button className="button" type="submit" variant="contained" color="primary">
             Find your new job!
           </Button>
         </form>
-      </div>
-    
-      <main className="job-content">
+        <div className="results">
+          { jobs ? <p>{jobs.length} results found</p> : null }
+        </div>
 
-        { jobs ? <p>{jobs.length} results found</p> : null }
+      
+        
+      </div>
+
+      
+      
+      
+      <main className="job-content">
+        
 
         { jobs ? jobs.map((job) => {
           return <JobCard url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} />
         }) : null}
       
-        
       </main>
         <Footer />
     </div>
