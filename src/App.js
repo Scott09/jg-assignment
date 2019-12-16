@@ -32,11 +32,23 @@ function App() {
 
   };
 
+  const handleRadiusChange = event => {
+    setSearchRadius(event.target.value);
+  };
 
-  // Just for debugging purposes
-  useEffect(() => {
-    console.log(jobs);
-  }, [jobs])
+  const handleDateChange = event => {
+    setpostDate(event.target.value);
+  };
+
+  // useEffect( async () => {
+  //   try {
+  //     const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}&radius_miles=${searchRadius}&days_ago=${postDate}`);
+  //     const json = await response.json();
+  //     setJobs(json.jobs);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [searchRadius, postDate])
   
 
   return (
@@ -51,7 +63,8 @@ function App() {
         </form>
         <div className="results">
           { jobs ? <p>{jobs.length} results found</p> : null }
-          <ControlledOpenSelect />
+          <ControlledOpenSelect postDate={postDate} title={"Date Posted"} handleChange={handleDateChange} optionone={{name: "Posted in last 10 days", value: 10}} optiontwo={{name: "Posted in last 30 days", value: 30}} optionthree={{name: "Posted in last 60 days", value: 60}}/>
+          {/* <ControlledOpenSelect handleChange={handleRadiusChange}/> */}
         </div>
       </div>
 

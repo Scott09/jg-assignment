@@ -17,13 +17,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ControlledOpenSelect({handleChange}) {
+export default function ControlledOpenSelect({postDate, handleChange, optionone, optiontwo, optionthree, title}) {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
   
 
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
+  // const handleChange = event => {
+  //   setAge(event.target.value);
+  // };
 
   const handleClose = () => {
     setOpen(false);
@@ -35,26 +36,23 @@ export default function ControlledOpenSelect({handleChange}) {
 
   return (
     <div>
-      <Button className={classes.button} onClick={handleOpen}>
-        Open the select
-      </Button>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Age</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">{title}</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={age}
+          value={postDate}
           onChange={handleChange}
         >
           <MenuItem value="">
-            <em>None</em>
+            <em>No date filter</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={optionone.value}>{optionone.name}</MenuItem>
+          <MenuItem value={optiontwo.value}>{optiontwo.name}</MenuItem>
+          <MenuItem value={optionthree.value}>{optionthree.name}</MenuItem>
         </Select>
       </FormControl>
     </div>
