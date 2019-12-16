@@ -41,12 +41,12 @@ function App() {
 
       <div>
         <form className="inputform" onSubmit={handleSubmit} >
-            {/* <input value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription" placeholder="What are you looking for?"></input> */}
+            
 
             <TextField id="standard-basic" label="What job do you want?" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
             <TextField id="standard-basic" label="Where do you want to work?" value={city} onChange={e => setCity(e.target.value)} type="text" name="city"/>
 
-            {/* <input value={city} onChange={e => setCity(e.target.value)} type="text" name="city" placeholder="Where are you looking?"></input> */}
+        
             <Button className="button" type="submit" variant="contained" color="primary">
             Find your new job!
           </Button>
@@ -54,9 +54,6 @@ function App() {
       </div>
     
       <main className="job-content">
-        {/* {
-          jobs ? <JobCard url={jobs[0].url} name={jobs[0].name} age={jobs[0].job_age}/> : null
-        } */}
 
         { jobs ? jobs.map((job) => {
           return <JobCard url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} />
@@ -65,7 +62,6 @@ function App() {
         
       </main>
         <Footer />
-      
     </div>
   );
 }
