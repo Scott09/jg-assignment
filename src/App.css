@@ -1,9 +1,8 @@
+
+
 .App {
-  text-align: center;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
 }
 
 .inputform {
@@ -12,6 +11,11 @@
   flex-direction: column;
   max-width: 100%;
   width: 300px;
+}
+
+.job-content {
+  display: block;
+  justify-content: left;
 }
 
 

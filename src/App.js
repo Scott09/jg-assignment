@@ -4,7 +4,7 @@ import Footer from '../src/components/Footer/Footer.component';
 import { TextField } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { Container } from '@material-ui/core';
-
+import JobCard from '../src/components/JobCard/Jobcard.component';
 
 
 
@@ -28,6 +28,12 @@ function App() {
       console.log(error);
     }
   };
+
+
+  // Just for debugging
+  useEffect(() => {
+    console.log(jobs);
+  }, [jobs])
   
 
   return (
@@ -48,7 +54,14 @@ function App() {
       </div>
     
       <main className="job-content">
+        {
+          jobs ? <JobCard url={jobs[0].url} name={jobs[0].name}/> : null
+        }
         
+        {/* { jobs ? return (<p></p>) :}
+        { jobs ? jobs.every((job) => {
+          return <JobCard url={job.url} source={job.source} name={job.name} snippet={job.snippet} location={job.location} salary_min={job.salary_min} salary_max={job.salary_max}/>
+        }) : null} */}
       </main>
         
       

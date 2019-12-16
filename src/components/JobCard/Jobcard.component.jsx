@@ -1,10 +1,18 @@
 import React from 'react';
-import './Jobcard.css';
+import './Jobcard.styles.css';
 
-const JobCard = ({ url, source, name, snippet, location, salary_min, salary_max}) => {
+const JobCard = ( { url, source, name, snippet, location, salary_min, salary_max} ) => {
   return (
-    <div>
-      Job information will go here
+    <div className="container">
+      <div>
+        
+      </div>
+      <div>
+        <p>{name}</p>
+      </div>
+      <div>
+      <a href={url}>Visit Posting!</a>
+      </div>
     </div>
   );
 }
