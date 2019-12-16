@@ -5,6 +5,7 @@ import { TextField } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import JobCard from '../src/components/JobCard/Jobcard.component';
 import ControlledOpenSelect from '../src/components/ControlledOpenSelect/ControlledOpenSelect';
+import Header from '../src/components/Header/Header.component';
 
 
 
@@ -40,8 +41,12 @@ function App() {
   return (
     <>
     <div className="App">
+
+      
       
       <div>
+      <Header />
+        
         <form className="inputform" onSubmit={handleSubmit} >
             <TextField id="standard-basic" label="Job description or keyword" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
             <TextField id="standard-basic" label="Near what city?" value={city} onChange={e => setCity(e.target.value)} type="text" name="city"/>
