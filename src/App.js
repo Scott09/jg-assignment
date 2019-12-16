@@ -23,13 +23,9 @@ function App() {
       const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}&radius_miles=${searchRadius}&days_ago=${postDate}`);
       const json = await response.json();
       setJobs(json.jobs);
-      //reset TextField states
-      setCity("");
-      setJobSearch("");
     } catch (error) {
       console.log(error);
     }
-
   };
 
   const handleRadiusChange = event => {
@@ -39,32 +35,29 @@ function App() {
   const handleDateChange = event => {
     setpostDate(event.target.value);
   };
-
-  // useEffect( async () => {
-  //   try {
-  //     const response = await fetch(`/jobs?jobSearch=${jobSearch}&location=${city}&radius_miles=${searchRadius}&days_ago=${postDate}`);
-  //     const json = await response.json();
-  //     setJobs(json.jobs);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [searchRadius, postDate])
   
 
   return (
+    <>
     <div className="App">
       <div>
         <form className="inputform" onSubmit={handleSubmit} >
             <TextField id="standard-basic" label="Job description or keyword" value={jobSearch} onChange={e => setJobSearch(e.target.value)} type="text" name="jobdescription"/>
             <TextField id="standard-basic" label="Near what city?" value={city} onChange={e => setCity(e.target.value)} type="text" name="city"/>
+            <div className="drop-downs">
+              <ControlledOpenSelect title={"Date Posted"} handleChange={handleDateChange} optionone={{name: "Last 10 days", value: 10}} optiontwo={{name: "Last 30 days", value: 30}} optionthree={{name: "Last 60 days", value: 60}}/>
+
+              <ControlledOpenSelect handleChange={handleRadiusChange} title={"Distance"} optionone={{name: "Within 20 miles", value: 20}} optiontwo={{name: "Within 50 miles", value: 50}} optionthree={{name: "Within 100 miles", value: 100}}/>
+            </div>
+           
             <Button className="button" type="submit" variant="contained" color="primary">
             Find your new job!
           </Button>
         </form>
         <div className="results">
           { jobs ? <p>{jobs.length} results found</p> : null }
-          <ControlledOpenSelect postDate={postDate} title={"Date Posted"} handleChange={handleDateChange} optionone={{name: "Posted in last 10 days", value: 10}} optiontwo={{name: "Posted in last 30 days", value: 30}} optionthree={{name: "Posted in last 60 days", value: 60}}/>
-          {/* <ControlledOpenSelect handleChange={handleRadiusChange}/> */}
+
+          
         </div>
       </div>
 
@@ -73,8 +66,10 @@ function App() {
           return <JobCard url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} />
         }) : null}
       </main>
-        <Footer />
+      <Footer />
     </div>
+    
+    </>
   );
 }
 

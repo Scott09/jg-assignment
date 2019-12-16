@@ -44,7 +44,7 @@ export default function ControlledOpenSelect({postDate, handleChange, optionone,
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={postDate}
+          value={null}
           onChange={handleChange}
         >
           <MenuItem value="">

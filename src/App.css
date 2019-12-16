@@ -18,10 +18,20 @@
   flex-wrap: wrap;
   overflow: scroll;
   margin: 15px;
+  position: relative;
 }
 
 .results {
   margin: 10px;
+}
+
+.drop-downs {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 300px;
 }
 
 
