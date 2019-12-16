@@ -13,7 +13,7 @@ function App() {
   const [city, setCity] = useState("");
   const [jobSearch, setJobSearch] = useState("");
   const [searchRadius, setSearchRadius] = useState(75);
-  const [postDate, setpostDate] = useState(50);
+  const [postDate, setpostDate] = useState(100);
 
   const handleSubmit = async (event) => {
 
@@ -57,6 +57,8 @@ function App() {
       </div>
     
       <main className="job-content">
+
+        { jobs ? <p>{jobs.length} results found</p> : null }
 
         { jobs ? jobs.map((job) => {
           return <JobCard url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} />
