@@ -19,7 +19,7 @@ const JobCard = ( { url, name, location, salary_min, salary_max, age, company, s
         
       </main>
       <footer className="cardfooter">
-          <span className="footeritem"><a href={url}>Visit Posting!</a></span>
+          <span className="footeritem"><a href={url}>Visit Job Posting!</a></span>
           <span className="footeritem">{age} days old</span>
       </footer>
     </div>
