@@ -15,9 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/jobs', (req, res) => {
-  console.log("here")
   const url = `https://api.ziprecruiter.com/jobs/v1?search=${req.query.jobSearch}&location=${req.query.location}&radius_miles=${req.query.radius_miles}&days_ago=${req.query.days_ago}&api_key=${process.env.ZIP_API}`;
-  console.log(url);
   request(
     url,
     (error, result) => {
