@@ -24,7 +24,6 @@ app.get('/jobs', (req, res) => {
       if (error) {
         return console.log(error);
       }
-      console.log(result.body);
       res.status(200).send(result.body);
     }
   )
