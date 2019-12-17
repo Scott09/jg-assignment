@@ -3,10 +3,8 @@ import './Jobcard.styles.css';
 
 const JobCard = ( { url, name, location, salary_min, salary_max, age, company, snippet} ) => {
 
-
   // snippet comes back with some html tags so i'm just removing them here
   const text = snippet.replace(/(<([^>]+)>)/g, "");
-
 
   return (
     <div className="container">

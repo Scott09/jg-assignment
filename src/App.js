@@ -8,7 +8,6 @@ import ControlledOpenSelect from '../src/components/ControlledOpenSelect/Control
 import Header from '../src/components/Header/Header.component';
 
 
-
 function App() {
 
   const [jobs, setJobs] = useState();
@@ -37,13 +36,10 @@ function App() {
     setpostDate(event.target.value);
   };
   
-
   return (
     <>
     <div className="App">
 
-      
-      
       <div>
       <Header />
         
@@ -60,11 +56,11 @@ function App() {
             Find your new job!
           </Button>
         </form>
+
         <div className="results">
           { jobs ? <p>{jobs.length} results found</p> : null }
-
-          
         </div>
+
       </div>
 
       <main className="job-content">
@@ -72,14 +68,10 @@ function App() {
           return <JobCard key={job.id} url={job.url} name={job.name} age={job.job_age} company={job.hiring_company.name} snippet={job.snippet} location={job.location} salary_min={job.salary_min} salary_max={job.salary_max}/>
         }) : null}
 
-
         <Footer jobs={jobs} />
         
       </main>
-      
 
-      
-      
     </div>
       </>
   );

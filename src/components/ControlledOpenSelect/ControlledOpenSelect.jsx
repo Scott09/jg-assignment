@@ -21,10 +21,6 @@ export default function ControlledOpenSelect({handleChange, optionone, optiontwo
   const [open, setOpen] = React.useState(false);
   
 
-  // const handleChange = event => {
-  //   setAge(event.target.value);
-  // };
-
   const handleClose = () => {
     setOpen(false);
   };
